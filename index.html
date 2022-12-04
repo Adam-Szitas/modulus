@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modulus Dunajská Streda</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script
+    src="https://code.jquery.com/jquery-3.6.1.min.js"
+    integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+    crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="navbar">
+        <span class="logo">MODULUS s. r. o.</span>
+        <span class="nav_buttons">
+            <button type="button" onclick="scrollFunc('home')">Domov</button>
+            <button type="button" onclick="scrollFunc('gallery')">Galéria</button>
+            <button type="button" onclick="scrollFunc('contact')">Kontakt</button>
+        </span>
+    </div>
+    <div class="body">
+        <div class="home" id="home">
+            <div class="body_container">
+                <div class="image_box">
+                    <div class="image_flip horizontal">
+                        <div class="front">
+                            <img src="https://decombo.com/wp-content/uploads/2020/10/modern-dekorasyon.jpg" alt="modern design">
+                        </div>
+                        <div class="back">
+                            <img src="https://decombo.com/wp-content/uploads/2020/10/modern-dekorasyon.jpg" alt="modern design">
+                        </div>
+                    </div>
+                    <div class="image_flip vertical rounded">
+                        <div class="front">
+                            <img src="https://decombo.com/wp-content/uploads/2020/10/modern-dekorasyon.jpg" alt="modern design">
+                        </div>
+                        <div class="back">
+                            <img src="https://decombo.com/wp-content/uploads/2020/10/modern-dekorasyon.jpg" alt="modern design">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="gallery" id="gallery">
+            <div class="gallery_headline">
+                <h1>Galéria</h1>
+            </div>
+            <div class="gallery_container">
+                <div class="gallery_box">
+                    <div class="gallery_picture" data-src="https://decombo.com/wp-content/uploads/2020/10/modern-dekorasyon.jpg"></div>
+                    <div class="gallery_picture" data-src="https://decombo.com/wp-content/uploads/2020/10/modern-dekorasyon.jpg"></div>
+                    <div class="gallery_picture" data-src="https://decombo.com/wp-content/uploads/2020/10/modern-dekorasyon.jpg"></div>
+                    <div class="gallery_picture" data-src="https://decombo.com/wp-content/uploads/2020/10/modern-dekorasyon.jpg"></div>
+                </div>
+                <div class="gallery_box">
+                    <div class="gallery_picture" data-src="https://decombo.com/wp-content/uploads/2020/10/modern-dekorasyon.jpg"></div>
+                    <div class="gallery_picture" data-src="https://decombo.com/wp-content/uploads/2020/10/modern-dekorasyon.jpg"></div>
+                    <div class="gallery_picture" data-src="https://decombo.com/wp-content/uploads/2020/10/modern-dekorasyon.jpg"></div>
+                    <div class="gallery_picture" data-src="https://decombo.com/wp-content/uploads/2020/10/modern-dekorasyon.jpg"></div>
+                </div>
+                <div class="gallery_box">
+                    <div class="gallery_picture" data-src="https://decombo.com/wp-content/uploads/2020/10/modern-dekorasyon.jpg"></div>
+                    <div class="gallery_picture" data-src="https://decombo.com/wp-content/uploads/2020/10/modern-dekorasyon.jpg"></div>
+                    <div class="gallery_picture" data-src="https://decombo.com/wp-content/uploads/2020/10/modern-dekorasyon.jpg"></div>
+                    <div class="gallery_picture" data-src="https://decombo.com/wp-content/uploads/2020/10/modern-dekorasyon.jpg"></div>
+                </div>
+                <div class="gallery_box">
+                    <div class="gallery_picture" data-src="https://decombo.com/wp-content/uploads/2020/10/modern-dekorasyon.jpg"></div>
+                    <div class="gallery_picture" data-src="https://decombo.com/wp-content/uploads/2020/10/modern-dekorasyon.jpg"></div>
+                    <div class="gallery_picture" data-src="https://decombo.com/wp-content/uploads/2020/10/modern-dekorasyon.jpg"></div>
+                    <div class="gallery_picture" data-src="https://decombo.com/wp-content/uploads/2020/10/modern-dekorasyon.jpg"></div>
+                </div>
+            </div>
+        </div>
+        <div class="contact" id="contact">
+            <div class="contact_headline">
+                <h1 class="white">Kontakt</h1>
+            </div>
+            <div class="contact_container">
+
+            </div>
+        </div>
+    </div>
+    <script>
+        $(window).on('load', function (){
+            $('div.gallery_picture').each((index, element) => {
+                const bgUrl = $(element).attr('data-src');
+                console.log(bgUrl);
+                $(element).css('background-image', 'url('+bgUrl+')');
+            })
+        })
+        function scrollFunc(id){
+            $('html').animate({
+                scrollTop: $('#'+id).offset().top
+            }, 300)
+        }
+    </script>
+</body>
+</html>
